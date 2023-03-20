@@ -13,4 +13,11 @@ const createProductModel = async (product: ProductsInterface): Promise<ProductsI
   
   return { id: insertId, name: productName, amount: productAmount };
 };
-export = { createProductModel };
+
+const getAllModel = async (): Promise<Array<object>> => {
+  const [rows] = await connection
+    .execute('SELECT * FROM Trybesmith.products');
+  
+  return rows as Array<object>;
+};
+export = { createProductModel, getAllModel };

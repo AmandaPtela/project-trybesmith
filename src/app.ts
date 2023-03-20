@@ -12,4 +12,6 @@ app.get('/', (_request, response) => {
 // console.log('app');
 app.post('/products', productsController.createProductController);
 
+app.get('/products', productsController.getAllProductsController);
+
 export default app;

@@ -5,4 +5,9 @@ async function createProductService(product: ProductsInterface): Promise<Product
   const products = await ProductModel.createProductModel(product);
   return products;
 }
-export = { createProductService };
+
+const getAllService = async (): Promise<Array<object>> => {
+  const products = await ProductModel.getAllModel();
+  return products;
+};
+export = { createProductService, getAllService };
