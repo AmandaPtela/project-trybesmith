@@ -1,8 +1,8 @@
 import { ResultSetHeader } from 'mysql2';
-import ProductsInterface from '../interfaces/productsInterface';
+import IProduct from '../interfaces/IProduct';
 import connection from './connection';
 
-const createProductModel = async (product: ProductsInterface): Promise<ProductsInterface> => {
+const createProductModel = async (product: IProduct): Promise<IProduct> => {
   const { name, amount } = product;
   const productName: string = name;
   const productAmount: string = amount;

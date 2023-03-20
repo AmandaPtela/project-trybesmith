@@ -1,5 +1,6 @@
 import express from 'express';
 import productsController from './controllers/productsController';
+import usersController from './controllers/usersController';
 // Inicio
 const app = express();
 
@@ -13,5 +14,7 @@ app.get('/', (_request, response) => {
 app.post('/products', productsController.createProductController);
 
 app.get('/products', productsController.getAllProductsController);
+
+app.post('/users', usersController.createUserController);
 
 export default app;
