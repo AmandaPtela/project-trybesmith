@@ -1,4 +1,5 @@
 import express from 'express';
+import ordersController from './controllers/ordersController';
 import productsController from './controllers/productsController';
 import usersController from './controllers/usersController';
 // Inicio
@@ -16,5 +17,7 @@ app.post('/products', productsController.createProductController);
 app.get('/products', productsController.getAllProductsController);
 
 app.post('/users', usersController.createUserController);
+
+app.get('/orders', ordersController.getAllOrdersController);
 
 export default app;
