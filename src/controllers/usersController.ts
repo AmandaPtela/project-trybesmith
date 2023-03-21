@@ -7,4 +7,17 @@ const createUserController = async (request: Request, response: Response) => {
   
   return response.status(201).json({ token: user });
 };
-export = { createUserController };
+
+const loginController = async (request: Request, response: Response) => {
+  const user = await usersService.loginService(request.body);
+  
+  if (user.includes('password')) {
+    return response.status(400).json({ message: '"password" is required' });
+  }
+  if (user.includes('username')) {
+    return response.status(400).json({ message: '"username" is required' });
+  }
+  return response.status(200).json({ token: user });
+};
+
+export = { createUserController, loginController };

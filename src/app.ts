@@ -20,4 +20,6 @@ app.post('/users', usersController.createUserController);
 
 app.get('/orders', ordersController.getAllOrdersController);
 
+app.post('/login', usersController.loginController);
+
 export default app;

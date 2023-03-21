@@ -8,4 +8,17 @@ const createUserService = async (user: IUser): Promise<string> => {
   return token;
 };
 
-export = { createUserService };
+const loginService = async (user: IUser): Promise<string> => {
+  const { username, password } = user;
+  if (!username) return ('username');
+  if (!password) return ('password');
+  const validateUser = await usersModel.loginModel(user);
+  const arraay = Object.values(validateUser[0]);
+  
+  if (!arraay.includes(password)) return ('invalid password');
+  
+  const token = generateToken(user);
+  return token;
+};
+
+export = { createUserService, loginService };
